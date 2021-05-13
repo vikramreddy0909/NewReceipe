@@ -1,0 +1,11 @@
+{% if receipe %}
+{% for items in receipe %}
+<a href="/receipeapp3/{{ items.id }}/details/">{{ items.name }}</a>  <a href="/receipeapp3/delete_receipe/"> delete  </a><br>
+{% endfor%}
+{% else %}<br>
+ No Data created
+{% endif %}
+
+
+<a href="/receipeapp3/create_page/">Create Own page </a><br>
+<a href="/receipeapp3/logout_page/">Logout</a>

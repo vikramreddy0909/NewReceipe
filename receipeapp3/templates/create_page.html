@@ -1,0 +1,15 @@
+<h1> Create Own Receipe </h1>
+
+
+<form action="/receipeapp3/save_receipe/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Name        :<input type="text" name="name"><br><br>
+    Process     :<input type="text" name="process"><br><br>
+    ingridients :<input type="text" name="ingridients"><br><br>
+    image       :<input type="file" name="image"><br><br>
+
+
+    <input type="submit" value="Create"><br>
+</form>
+<a href="/receipeapp3/logout_page/">Logout</a>
