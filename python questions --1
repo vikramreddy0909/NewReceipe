@@ -1,0 +1,182 @@
+1.What is lambda function ?
+
+A.* In python, Lambda function is a single line function declared with no name function and also a anonymous function.
+  * which can have any number of arguments we can pass.
+  * But it can only one expression such a function a capable of behaving similarly to aregular function declared using the python 
+    "def" keyword.
+  * we can use lambda keyword to declare an anonymous function.
+  *lambda function can be used to return function objects.
+  
+      Ex1: product = lambda x,y : x*y
+           print(product(2,3))
+           #6
+          
+      Ex2: sequence=[10,2,3,8,7,5,4,11,0,1]
+           filtered=filter(lambda x:x>4,sequence)
+           print(list(filtered))
+           
+           #[10,8,7,5,11]
+           
+      Ex3: sequence=[10,2,8,7,5,4,3,11,0,1]
+           filtered=map(lambda x: x*x,sequence)
+           print(list(filtered))
+           
+           #[100,4,64,49,25,16,9,121,0,1]
+           
+  uses:
+  
+  * lambda function are used when you need a function for a short period of time.
+  * This is commonly used when you want to pass a funtion an argument to High_order functions.
+           
+2.What is list comprehension ?
+
+  * List comprehension in python is an easy and compact syntax for creatinf a list from string or another list.
+  * It is every concise way to create a new list by performing an operation each item in the existing list.
+  * List comprehension is considerably fasther than processing a list using the for loop.
+
+      Ex1: even=[x for x in range(11) if x%2==0]
+           print(even)
+           
+           #[0, 2, 4, 6, 8, 10]
+           
+      Ex2: square=[x*x for x in range(11)]
+           print(square)
+           
+           #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+           
+           
+      Ex3: lst=[x//2 for x in range(20) if x%2==0]
+           print(lst)  
+           
+           #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+           
+           
+3.Difference between list comprehension & lambda function ?
+
+        list Comprehension                                                  lambda function
+  
+  * List comprehension is used to creating lists                        * Lambdas are functions that can process like other func
+  * List comprehension is an elegant way to define and a create         * In Python, anonymous function means that a function is 
+    list in python.                                                       without a name.
+  * We can create list just like a mathematical statements and          * when you need a function with short period of time.
+    in one only.
+  * The syntax of list comprehension is easier than graps               * one line expression function
+    
+          Ex:list_ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]                         Ex:list_ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+             list_comp = [x * 2 for x in list_]                                lambda_list = list(map(lambda x: x * 2, list_))
+             print(list_comp)                                                  print(lambda_list)
+                                                              
+            
+             #[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]                               #[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+             
+             
+4.Difference between list comprehension & tuple comprehension ?
+
+    List comprehension:
+  
+  * List comprehension more fundamentals we have 
+  * In python List comprehension is method for constructing a list from a list,a range or other iterable structure.
+  * List comprehensions are frequently used to extract data from other lists or to generate new data from an existing data list.
+  
+  
+  Ex: lst=[x//2 for x in range(20) if x%2==0]
+           print(lst)  
+           
+           #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+           
+           
+    Tuple Comprehension :
+    
+  * Tuple is an alternative to the list structure in python.
+  * Tuple comprehensive we have less fundamentals.
+  * Tuple is immutable object.
+  * cannot be expressed using a list comprehension and this is optimal form.
+  * So there are no benefits from adding a special syntax construction for it. 
+  * Tuples cannot efficiently be appended like a list. So a tuple comprehension would need to use a list internally and then         convert to a tuple. That would be the same as what you do now : tuple( [ comprehension ] )
+  
+   Ex:(x for x in it)----> it will returns a generator
+   
+   
+5. Difference between generator & decorator ?
+
+   Generators:
+   
+  * The python generators give an easy way of creating iterators. These generators instead of returning the function from the       return statement use the "yield” keyword.
+  * If the function contains at least one “yield” statement, it becomes a generator function. Both the yield and return will         return some value from the function.
+  * There is no necessity to call the functions. Additionally, the generator automatically calls methods like iter() and next.       Usually next() will iterate these functions  
+  
+     Ex1:  def yrange(n):
+               x=0
+               while x < n:
+                   yield(x)
+                   x+=1
+           
+           d=yrange(5)
+           d.__next__()---->0
+           d.__next__()---->1
+           d.__next__()---->2
+           d.__next__()---->3
+           d.__next__()---->4
+           d.__next__()----> stopiteration
+           
+           
+   Decorators:
+   
+  *  A decorator is a design pattern inpython that allows a user to add new functionality to an existing object without             modifying its structure 
+  * decorators function we will use "@" symbol.
+  * Decorators are usually called before the definition of a function you want to decorate.
+  
+    Ex: 
+    
+def hello_decorator(func):
+    def inner1():
+        print("Hello, this is before function execution")
+
+        func()
+        print("This is after function execution")
+    return inner1
+
+
+
+def function_to_be_used():
+    print("This is inside the function !!")
+function_to_be_used = hello_decorator(function_to_be_used)
+
+function_to_be_used()
+
+ 
+o/p:
+
+Hello, this is before function execution
+This is inside the function !!
+This is after function execution
+
+
+
+6.Difference between decorators & Normal function ?
+ 
+   Decorators :
+  
+ * The purpose of a decorator function is to dynamically alter the execution behavior of a function. 
+ * The reason decorators are useful is because they allow you to quickly and easily change the behavior of a function, without      having to directly modify a function.
+ * We mentioned already that a decorator is simply a callable object that takes a function as an input parameter.
+ 
+   Normal Function :
+   
+ *  A function is callable object.
+ *  A function is a block of code which only runs when it is called.
+ *  You can pass data, known as parameters, into a function. A function can return data as a result.
+ 
+
+7.When to use generators ? and when to use decorators ?
+
+
+ 
+ 
+           
+           
+   
+              
+           
+  
+  
